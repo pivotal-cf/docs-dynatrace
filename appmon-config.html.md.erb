@@ -1,0 +1,212 @@
+---
+title: Dynatrace Appmon Tile
+owner: Principal Technical Program Manager?
+---
+
+<strong><%= modified_date %></strong>
+
+Dynatrace Appmon enables in-depth monitoring of application and its performance via its agent embedded or bundled with the application. The agent instruments the application code and publishes performance monitoring metrics and other details back to Dynatrace Appmon dashboards. 
+
+<%= image_tag 'appmon-add-service-broker.png' %>
+
+## <a id="service-broker"></a> Dynatrace Appmon Service Broker
+
+A Service Broker allows Cloud Foundry applications to bind to services and consume the services easily from App Manager UI or command line. The Dynatrace Appmon Service Broker exposes the Dynatrace Appmon service on the Cloud Foundry Marketplace and allows users to directly create a service instance and bind it to their applications either from the Pivotal Apps Manager Console or from the command line. The Broker is deployed as a Java Application on Cloud Foundry. 
+
+PCF (Pivotal Cloud Foundry) Tile for Dynatrace Appmon installs the Dynatrace Appmon Service Broker as an application and registers it as a Service Broker on Cloud Foundry and exposes its service plan on the Marketplace. This makes the installation and subsequent use of Dynatrace Appmon on your Cloud Foundry applications simple and easy, allowing end to end monitoring of applications running on Cloud Foundry. 
+
+## <a id="trial-license"></a> Trial License
+	
+Users interested in Dynatrace Appmon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
+
+## <a id="product-snapshot"></a> Product Snapshot
+
+Current Dynatrace Appmon Tile for Pivotal Cloud Foundry Details
+
+* Version: 1.0
+* Release Date: 2016-04-&lt;Date&gt;
+* Software components versions: Dynatrace Appmon Service Broker 1.0
+* Compatible Ops Manager Version(s): 1.6.x, 1.7
+* Compatible Elastic Runtime Version(s): 1.4.x, 1.5.x, 1.6.x, 1.7.x
+* Compatible Dynatrace Appmon Controller Version(s): 6.3.x
+* vSphere support? Yes
+* AWS support? Yes
+
+## <a class="upgrading"></a> Upgrading to the Latest Version
+	
+Not applicable for version 1.0.
+
+## <a id="install-with-opsman"></a> Install via Pivotal Ops Manager
+	
+1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
+
+1. Upload the product file to your Ops Manager installation.
+
+1. Click **Add** next to the uploaded product description in the Ops Manager Available Products view to add this product to your staging area.
+			
+1. Click the newly added tile to review any configurable options.
+
+1. Click **Apply Changes** to install the service.
+
+## <a id="configure-tile"></a> Configuring the Dynatrace Appmon tile
+
+1. Log in to Pivotal Ops Manager.
+
+1. Click on **Import a Product** and import the Dynatrace Appmon tile.
+
+1. Select the **Dynatrace Appmon** tile on the left panel under **Available Products**.
+
+	<%= image_tag 'appmon-select-product.png' %>
+
+1. Click **Add** on the Dynatrace Appmon tile.
+
+1. Select the **Dynatrace Appmon** tile.
+
+	<%= image_tag 'appmon-select-tile.png' %>
+
+1. Configure the Availability Zone
+
+	<%= image_tag 'appmon-assign-networks.png' %>
+
+1. ??
+
+	<%= image_tag 'appmon-service-broker.png' %>
+
+
+1. In the **Dynamic Service Plans** section, click the **Add** button at upper right to add a service plan, and configure each plan as follows:
+	<%= image_tag 'appmon-config-service-plan.png' %>
+
+	1. Create a separate Service Plan for each Dynatrace Appmon Collector instance to be used.
+	1. Configure the Dynatrace Appmon Collector server address and port.
+	1. Add additional collectors as needed.
+
+						
+1. In the **Service Access** section, select the **Enable global access...** checkbox to publish your services to all users in the Service Marketplace.
+
+<%= image_tag 'appmon-config-service-access.png' %>
+
+1. Save configurations.
+
+<%= image_tag 'appmon-select-tile.png' %>
+
+1. Apply Changes.
+
+1. Navigate to Apps Manager and click **Marketplace** in the left panel to open the Services Marketplace. You will see **Dynatrace Appmon** listed under **Marketplace** if the instance installation succeeded.
+							
+<%= image_tag 'appmon-in-marketplace.png' %>
+
+Click **Dynatrace Appmon** to open the service pane.
+			
+<%= image_tag 'appmon-service-plan.png' %>
+
+Bind the Dynatrace Appmon Service to an application.
+
+<%= image_tag 'appmon-service-bind.png' %>
+
+Check the application logs. Run `cf logs` to determine if the Dynatrace Appmon agent invoked properly.
+
+<%= image_tag 'appmon-log1.png' %>
+
+<%= image_tag 'appmon-log2.png' %>
+
+1. Log into Dynatrace Appmon and open the **System Monitoring** view under **Host Tiles** to view monitoring data.
+	
+<%= image_tag 'appmon-host-view.png' %>
+
+
+	Figure 16.2: Dynatrace Java Process Health
+	
+<%= image_tag 'appmon-java-health.png' %>
+
+
+	Figure 16.3: Dynatrace Pure Paths view
+	
+
+<%= image_tag 'appmon-pure-paths.png' %>
+
+
+		Figure 16.4: Dynatrace Response Time hotspots
+		
+<%= image_tag 'appmon-response-hotspots.png' %>
+
+
+	Figure 16.5: Dynatrace Web Request overview
+
+
+<%= image_tag 'appmon-web-request.png' %>
+
+	Figure 16.6: Dynatrace Transaction Flow
+	
+<%= image_tag 'appmon-transaction-flow.png' %>
+
+	Figure 17: Dynatrace Database Dashlet
+	
+<%= image_tag 'appmon-db-dashlet.png' %>
+
+## What if customer is using HTTP Proxy?
+
+	If a customer is using http(s) proxy, it should not affect the Service Broker or the agent. The agents talk to the Dynatrace Appmon Collector over non-HTTP protocol and hence does not go over a http proxy.
+	
+## Application Security Groups?
+	
+	Open up application security group to allow outbound communication from the agents embedded with application instances to the remote Dynatrace servers. This would be required for runtime (use cf bind-running-security-group option). 
+	
+## Packaging Dependencies for Online Buildpacks
+	
+			The Java Buildpack or other language buildpacks should have their proxy configuration enabled to download the agents if using online buildpacks. Offline buildpacks discussed below should not have this issue.
+
+## Packaging Dependencies for Offline Buildpacks
+	
+<li>
+If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace Appmon agent sources) in your PCF environment.  
+
+More details on this can be found here: 
+
+	<a href="https://docs.run.pivotal.io/buildpacks/depend-pkg-offline.html"></a>
+
+<li>
+Also, refer to next section on limitations around Buildpacks.
+
+## 	What are the limitations?
+
+		<li>
+				Currently supported Buildpacks bundling Dynatrace Appmon Agent are the Java and PHP Buildpacks. 
+
+					Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 upwards
+
+							Use the latest online Java buildpack (use -b 
+
+								<a" href="https://github.com/cloudfoundry/java-buildpack</a>
+
+							or specify via manifest) when pushing apps.
+
+							Create offline Java buildpack from latest github repository ( 
+
+						<a" href="https://github.com/cloudfoundry/java-buildpack"></a>
+
+					and upload it to PCF.
+
+				PHP Buildpack 4.0+
+				<li>
+
+						Node.js Buildpack 1.5+ utilizing node engines 0.10.x and 0.12.x via agent bundling documented here: 
+
+						<a href="https://community.dynatrace.com/community/x/DafhCw"></a>
+						<li>
+
+						Similar support would be built for other language buildpacks in future releases. 
+						
+	Feedback
+
+	Please provide any bugs, feature requests, or questions to 
+
+		>the Pivotal Cloud Foundry Feedback list
+
+	Version
+	
+This product has been tested against Dynatrace Appmon APM 
+version:
+
+6.3.0
+
+Pivotal Internal Use Only
