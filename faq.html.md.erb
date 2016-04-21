@@ -1,0 +1,73 @@
+---
+title: Dynatrace Appmon for Pivotal Cloud Foundry&reg; Documentation
+---
+
+<strong><%= modified_date %></strong>
+
+Dynatrace Appmon enables in-depth, end-to-end monitoring of applications running on Cloud Foundry, via an embedded agent or by being bundled with the application. The agent collects and publishes performance metrics and other details to Dynatrace Appmon dashboards. 
+
+allowing end to end monitoring of . 
+
+## <a id="product-snapshot"></a> Product Snapshot
+
+Current Dynatrace Appmon Tile for Pivotal Cloud Foundry Details
+
+* Version: 1.0
+* Release Date: 2016-04-&lt;Date&gt;
+* Software components versions: Dynatrace Appmon Service Broker 1.0
+* Compatible Ops Manager Version(s): 1.6.x, 1.7
+* Compatible Elastic Runtime Version(s): 1.4.x, 1.5.x, 1.6.x, 1.7.x
+* Compatible Dynatrace Appmon Controller Version(s): 6.3.x
+* vSphere support? Yes
+* AWS support? Yes
+
+This product has been tested against Dynatrace Appmon APM version: 6.3.0
+
+## <a class="upgrading"></a> Upgrading to the Latest Version
+	
+Not applicable for version 1.0.
+
+## <a id="trial-license"></a> Trial License
+	
+Users interested in Dynatrace Appmon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
+
+## Features
+
+## Install via Pivotal Ops Manager
+
+## Using RabbitMQ in your application
+
+## Packaging Dependencies
+
+### Online Buildpacks
+
+The Java Buildpack or other language buildpacks should have their proxy configuration enabled to download the agents if using online buildpacks. Offline buildpacks discussed below should not have this issue.
+
+### Offline Buildpacks
+
+If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace Appmon agent sources) in your PCF environment.   
+More details on this can be found here:  https://docs.run.pivotal.io/buildpacks/depend-pkg-offline.html Also, refer to next section on limitations around Buildpacks.
+
+### Buildpack Limitations
+
+You can bundle the Dynatrace Appmon Agent with the following supported Java and PHP buildpacks:
+
+* Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 upwards
+
+	* Use the latest online Java buildpack (use -b https://github.com/cloudfoundry/java-buildpack or specify via manifest) when pushing apps.
+
+	* Create offline Java buildpack from latest github repository ( https://github.com/cloudfoundry/java-buildpack) and upload it to PCF.
+
+* PHP Buildpack 4.0+
+
+You can also bundle the Dynatrace Appmon Agent with the following Node.js Buildpack:
+
+* Node.js Buildpack 1.5+ utilizing node engines 0.10.x and 0.12.x via agent bundling documented here: https://community.dynatrace.com/community/x/DafhCw
+
+Future releases of Dynatrace Appmon for PCF will support other language buildpacks. 
+						
+## Feedback
+
+Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback list](mailto:pivotal-cf-feedback@pivotal.io)
+
+Pivotal Internal Use Only
