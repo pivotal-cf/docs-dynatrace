@@ -1,26 +1,26 @@
 ---
-title: Dynatrace Appmon for Pivotal Cloud Foundry&reg; Documentation
+title: Dynatrace AppMon for Pivotal Cloud Foundry&reg; Documentation
 ---
 
 <strong><%= modified_date %></strong>
 
-Dynatrace Appmon enables in-depth, end-to-end monitoring of applications running on Cloud Foundry, via an embedded agent or by being bundled with the application. The agent collects and publishes performance metrics and other details to Dynatrace Appmon dashboards.  
+Dynatrace AppMon enables in-depth, end-to-end monitoring of applications running on Pivotal Cloud Foundry, via an embedded agent or by being bundled with the application. The agent collects tracing and monitoring data, and publishes the resulting performance metrics and other details to Dynatrace AppMon dashboards.  
 
 ## <a id="product-snapshot"></a> Product Snapshot
 
 <dl>
-<dt>Current Dynatrace Appmon Tile for Pivotal Cloud Foundry Details</dt>
+<dt>Current Dynatrace AppMon Tile for Pivotal Cloud Foundry Details</dt>
 <dd><strong>Version</strong>: 1.0</dd>
 <dd><strong>Release Date</strong>: 2016-04-&lt;Date&gt;</dd>
-<dd><strong>Software components versions</strong>: Dynatrace Appmon Service Broker 1.0</dd>
+<dd><strong>Software components versions</strong>: Dynatrace AppMon Service Broker 1.0</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.7</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.4.x, 1.5.x, 1.6.x, 1.7.x</dd>
-<dd><strong>Compatible Dynatrace Appmon Controller Version(s)</strong>: 6.3.x</dd>
+<dd><strong>Compatible Dynatrace AppMon Controller Version(s)</strong>: 6.3.x</dd>
 <dd><strong>AWS support?</strong> Yes<dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 </dl>
 
-This product has been tested against Dynatrace Appmon APM version: 6.3.0
+This product has been tested against Dynatrace AppMon APM version: 6.3.0
 
 ## <a class="upgrading"></a> Upgrading to the Latest Version
 	
@@ -28,15 +28,15 @@ Not applicable for version 1.0.
 
 ## <a id="trial-license"></a> Trial License
 	
-Users interested in Dynatrace Appmon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
+Users interested in Dynatrace AppMon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
 
 ## <a id="install"></a>  Install via Pivotal Ops Manager
 
-See the [Installing Dynatrace Appmon for PCF](./appmon-config.html) topic. 
+See the [Installing Dynatrace AppMon for PCF](./appmon-config.html) topic. 
 
-## Appmon Data Views
+## AppMon Data Views
 
-Dynatrace Appmon offers multiple views of application data, including the following:
+Dynatrace AppMon offers multiple views of application data, including the following:
 
 <%= image_tag 'appmon-host-view.png' %>
 
@@ -72,12 +72,12 @@ The Java Buildpack or other language buildpacks should have their proxy configur
 
 ### Offline Buildpacks
 
-If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace Appmon agent sources) in your PCF environment.   
+If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace AppMon agent sources) in your PCF environment.   
 More details on this can be found here:  https://docs.run.pivotal.io/buildpacks/depend-pkg-offline.html Also, refer to next section on limitations around Buildpacks.
 
 ### Buildpack Limitations
 
-You can bundle the Dynatrace Appmon Agent with the following supported Java and PHP buildpacks:
+You can bundle the Dynatrace AppMon Agent with the following supported Java and PHP buildpacks:
 
 * Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 upwards
 
@@ -87,11 +87,11 @@ You can bundle the Dynatrace Appmon Agent with the following supported Java and 
 
 * PHP Buildpack 4.0+
 
-You can also bundle the Dynatrace Appmon Agent with the following Node.js Buildpack:
+You can also bundle the Dynatrace AppMon Agent with the following Node.js Buildpack:
 
 * Node.js Buildpack 1.5+ utilizing node engines 0.10.x and 0.12.x via agent bundling documented here: https://community.dynatrace.com/community/x/DafhCw
 
-Future releases of Dynatrace Appmon for PCF will support other language buildpacks. 
+Future releases of Dynatrace AppMon for PCF will support other language buildpacks. 
 						
 ## <a id="feedback"></a> Feedback
 

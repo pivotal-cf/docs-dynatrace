@@ -1,92 +1,91 @@
 ---
-title: Dynatrace Appmon Tile
+title: Installing and Configuring Dynatrace AppMon for PCF
 owner: Principal Technical Program Manager?
 ---
 
 <strong><%= modified_date %></strong>
 
-This topic explains how to install Dynatrace Appmon for Pivotal Cloud Foundry&reg; (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the App Manager UI or command line.
+This topic explains how to install Dynatrace AppMon for Pivotal Cloud Foundry&reg; (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the App Manager UI or command line.
 
-The Dynatrace Appmon Service Broker publishes the Dynatrace Appmon service as a tile in the Cloud Foundry Marketplace and allows users to create a service instance and bind it to their applications. The Broker is deployed as a Java Application on Cloud Foundry. 
+The Dynatrace AppMon Service Broker publishes the Dynatrace AppMon service as a tile in the Cloud Foundry Marketplace and allows users to create a service instance and bind it to their applications. The Broker is deployed as a Java Application on Cloud Foundry. 
 
-<%= image_tag 'appmon-add-service-broker.png' %>
+## <a id="install-with-opsman"></a> Install Dynatrace AppMon for PCF
 
-## <a id="install-with-opsman"></a> Install via Pivotal Ops Manager
+Install AppMon through your Ops Manager Installation Dashboard.
 	
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/).
 
-1. Upload the product file to your Ops Manager installation.
-
-1. Click **Add** next to the uploaded product description in the Ops Manager Available Products view to add this product to your staging area.
-			
-1. Click the newly added tile to review any configurable options.
-
-1. Click **Apply Changes** to install the service.
-
-## <a id="configure-tile"></a> Configuring the Dynatrace Appmon tile
-
-1. Log in to Pivotal Ops Manager.
-
-1. Click on **Import a Product** and import the Dynatrace Appmon tile.
-
-1. Select the **Dynatrace Appmon** tile on the left panel under **Available Products**.
+2. On the Installation Dashboard, click **Import a Product** and navigate to the downloaded product file. **Dynatrace AppMon Service Broker** appears under **Available Products**.
 
 	<%= image_tag 'appmon-select-product.png' %>
 
-1. Click **Add** on the Dynatrace Appmon tile.
+3. Select **Dynatrace AppMon Service Broker** and click **Add&raquo;** to add this product to your staging area.
+			
+	<%= image_tag 'appmon-add-service-broker.png' %>
 
-1. Select the **Dynatrace Appmon** tile.
+4. Click the tile to open the configuration options. See [Configure the Dynatrace AppMon tile](#configure-tile) below for configuration information. 
+
+5. After finishing and checking off all configuration sections, return to the **Installation Dashboard**. The tile should now show green, not orange.
+
+6. Click **Apply changes** to install the service.
+
+## <a id="configure-tile"></a> Configure the Dynatrace AppMon Tile
+
+1. In Pivotal Ops Manager, click the **Dynatrace AppMon** tile to open its configuration options.
 
 	<%= image_tag 'appmon-select-tile.png' %>
 
-1. Configure the Availability Zone
+2. Assign the network and availability zones.
 
 	<%= image_tag 'appmon-assign-networks.png' %>
 
-1. ??
-
-	<%= image_tag 'appmon-service-broker.png' %>
-
-
-1. In the **Dynamic Service Plans** section, click the **Add** button at upper right to add a service plan, and configure each plan as follows:
+4. In the **Dynamic Service Plans** section, click the **Add** button at upper right to add a service plan. Configure each plan as follows:
 	<%= image_tag 'appmon-config-service-plan.png' %>
 
-	1. Create a separate Service Plan for each Dynatrace Appmon Collector instance to be used.
-	1. Configure the Dynatrace Appmon Collector server address and port.
+	1. Create a separate Service Plan for each Dynatrace AppMon Collector instance. These instances run remotely to collect data from the agent running on PCF and cache it for use by the Dynatrace servers.
+	1. Configure the Dynatrace AppMon Collector server address and port.
 	1. Add additional collectors as needed.
 
-						
-1. In the **Service Access** section, select the **Enable global access...** checkbox to publish your services to all users in the Service Marketplace.
+3. In the **Service Access** section, select the **Enable global access...** checkbox to publish your services to all users in the Service Marketplace.
 
-<%= image_tag 'appmon-config-service-access.png' %>
+	<%= image_tag 'appmon-config-service-access.png' %>
 
-1. Save configurations.
+5. Return to the **Installation Dashboard**.
 
-<%= image_tag 'appmon-select-tile.png' %>
+	<%= image_tag 'appmon-select-tile.png' %>
 
-1. Apply Changes.
+6. Click **Apply changes**.
 
-1. Navigate to Apps Manager and click **Marketplace** in the left panel to open the Services Marketplace. You will see **Dynatrace Appmon** listed under **Marketplace** if the instance installation succeeded.
+## <a id="configure-tile"></a> Set Up Application Monitoring with the Dynatrace AppMon Service
+
+Begin monitoring applications by binding a Dynatrace AppMon instance to the apps in Apps Manager.
+
+1. [Navigate to Apps Manager](../customizing/console-login.html) and click **Marketplace** in the left panel to open the Services Marketplace. You should see **Dynatrace AppMon** listed under **Services**.
 							
-<%= image_tag 'appmon-in-marketplace.png' %>
+	<%= image_tag 'appmon-in-marketplace.png' %>
 
-Click **Dynatrace Appmon** to open the service pane.
+2. Click **Dynatrace AppMon** to open the service pane.
 			
-<%= image_tag 'appmon-service-plan.png' %>
+	<%= image_tag 'appmon-service-plan.png' %>
 
-Bind the Dynatrace Appmon Service to an application.
+3. Select a service plan and click **Select this plan**.
 
-<%= image_tag 'appmon-service-bind.png' %>
+4. Under **Configure Instance**, enter a name for the plan instance to create. Select a space for the instance to run in, and select an application to bind it to. This is an application you want AppMon to monitor.
+<p class="note"><strong>Note</strong>: You can set up monitoring for other applications by editing the bindings for the AppMon service in the Space Dashboard.</p>
 
-Check the application logs. Run `cf logs` to determine if the Dynatrace Appmon agent invoked properly.
+	<%= image_tag 'appmon-service-bind.png' %>
 
-<%= image_tag 'appmon-log1.png' %>
+5. Click **Add** to create and bind the instance.
 
-<%= image_tag 'appmon-log2.png' %>
+6. Check the application logs. Run `cf logs` from the cf CLI and look for a line starting with `dynaTrace Agent for Java Copyright...` to confirm that the Dynatrace AppMon agent is running.
 
-## <a id="using-appmon"></a> Using Dynatrace Appmon with PCF
+	<%= image_tag 'appmon-log1.png' %>
 
-1. Log into Dynatrace Appmon and open the **System Monitoring** view under **Host Tiles** to view monitoring data.
+	<%= image_tag 'appmon-log2.png' %>
+
+## <a id="using-appmon"></a> Using Dynatrace AppMon with PCF
+
+7. Log into Dynatrace AppMon and open the **System Monitoring** view under **Host Tiles** to view monitoring data.
 	
 <%= image_tag 'appmon-host-view.png' %>
 
@@ -122,7 +121,7 @@ Check the application logs. Run `cf logs` to determine if the Dynatrace Appmon a
 
 ## What if customer is using HTTP Proxy?
 
-	If a customer is using http(s) proxy, it should not affect the Service Broker or the agent. The agents talk to the Dynatrace Appmon Collector over non-HTTP protocol and hence does not go over a http proxy.
+	If a customer is using http(s) proxy, it should not affect the Service Broker or the agent. The agents talk to the Dynatrace AppMon Collector over non-HTTP protocol and hence does not go over a http proxy.
 	
 ## Application Security Groups?
 	
