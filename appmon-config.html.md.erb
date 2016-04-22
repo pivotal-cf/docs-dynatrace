@@ -5,7 +5,7 @@ owner: Principal Technical Program Manager?
 
 <strong><%= modified_date %></strong>
 
-This topic explains how to install Dynatrace AppMon for Pivotal Cloud Foundry&reg; (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the App Manager UI or command line.
+This topic explains how to install Dynatrace Application Monitoring (AppMon) for Pivotal Cloud Foundry&reg; (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the App Manager UI or command line.
 
 The Dynatrace AppMon Service Broker publishes the Dynatrace AppMon service as a tile in the Cloud Foundry Marketplace and allows users to create a service instance and bind it to their applications. The Broker is deployed as a Java Application on Cloud Foundry. 
 
@@ -83,50 +83,8 @@ Begin monitoring applications by binding a Dynatrace AppMon instance to the apps
 
 	<%= image_tag 'appmon-log2.png' %>
 
-## <a id="using-appmon"></a> Using Dynatrace AppMon with PCF
-
-7. Log into Dynatrace AppMon and open the **System Monitoring** view under **Host Tiles** to view monitoring data.
+7. Log into Dynatrace AppMon and open the **System Monitoring** view under **Host Tiles** to view monitoring data. See [AppMon Data Views](./index.html#views) for some example data views that the AppMon service offers.
 	
 <%= image_tag 'appmon-host-view.png' %>
 
-
-	Figure 16.2: Dynatrace Java Process Health
-	
-<%= image_tag 'appmon-java-health.png' %>
-
-
-	Figure 16.3: Dynatrace Pure Paths view
-	
-
-<%= image_tag 'appmon-pure-paths.png' %>
-
-
-		Figure 16.4: Dynatrace Response Time hotspots
-		
-<%= image_tag 'appmon-response-hotspots.png' %>
-
-
-	Figure 16.5: Dynatrace Web Request overview
-
-
-<%= image_tag 'appmon-web-request.png' %>
-
-	Figure 16.6: Dynatrace Transaction Flow
-	
-<%= image_tag 'appmon-transaction-flow.png' %>
-
-	Figure 17: Dynatrace Database Dashlet
-	
-<%= image_tag 'appmon-db-dashlet.png' %>
-
-## What if customer is using HTTP Proxy?
-
-	If a customer is using http(s) proxy, it should not affect the Service Broker or the agent. The agents talk to the Dynatrace AppMon Collector over non-HTTP protocol and hence does not go over a http proxy.
-	
-## Application Security Groups?
-	
-	Open up application security group to allow outbound communication from the agents embedded with application instances to the remote Dynatrace servers. This would be required for runtime (use cf bind-running-security-group option). 
-
-
-Also, refer to TK Known Issues
 
