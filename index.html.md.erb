@@ -4,7 +4,15 @@ title: Dynatrace AppMon for Pivotal Cloud Foundry&reg; Documentation
 
 <strong><%= modified_date %></strong>
 
-The Dynatrace Application Monitoring (AppMon) service enables in-depth, end-to-end monitoring of applications running on Pivotal Cloud Foundry (PCF), via an embedded agent bundled with the application buildpack. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously publishes the resulting performance metrics and other details to [Dynatrace AppMon dashboards](#views).
+This is documentation for the Pivotal Cloud Foundry&reg; Dynatrace AppMon APM tile.
+
+The Dynatrace Application Monitoring (AppMon) service enables in-depth monitoring of applications running on Pivotal Cloud Foundry (PCF), via an embedded agent bundled with applications that are deployed using Buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to AppMon account collectors. The AppMon account draws from this data to publish performance metrics and other details on [Dynatrace AppMon dashboards](#views).
+
+### Dynatrace AppMon Service Broker
+
+Cloud Foundry service brokers allow you to bind services to applications easily from the Pivotal Apps Manager Console or from the command line, so the applications can consume those services.
+
+The Pivotal Cloud Foundry® tile for Dynatrace AppMon installs the Dynatrace AppMon Service Broker as a Java application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications. 
 
 ## <a id="product-snapshot"></a> Product Snapshot
 
