@@ -5,14 +5,14 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic explains how to install Dynatrace Application Monitoring (AppMon) for Pivotal Cloud Foundry&reg; (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the Apps Manager console or command line.
+This topic explains how to install Dynatrace Application Monitoring (AppMon) for Pivotal Cloud Foundry (PCF) through a PCF service broker. Service brokers allow Cloud Foundry applications to bind to and consume the services from the Apps Manager console or command line.
 
-The Pivotal Cloud Foundry® (PCF) tile for Dynatrace AppMon installs the AppMon Service Broker as an application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace.
+The Pivotal Cloud Foundry (PCF) tile for Dynatrace AppMon installs the AppMon Service Broker as an application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace.
 
 ## <a id="install-with-opsman"></a> Install Dynatrace AppMon for PCF
 
 Install AppMon through your Ops Manager Installation Dashboard.
-	
+
 1. Download the product file from [Pivotal Network](https://network.pivotal.io/products/p-dynatrace-appmon).
 
 2. On the Installation Dashboard, click **Import a Product** and navigate to the downloaded product file. **Dynatrace AppMon Service Broker** appears under **Available Products**.
@@ -20,10 +20,10 @@ Install AppMon through your Ops Manager Installation Dashboard.
 	<%= image_tag 'appmon-select-product.png' %>
 
 3. Select **Dynatrace AppMon Service Broker** and click **Add&raquo;** to add this product to your staging area.
-			
+
 	<%= image_tag 'appmon-add-service-broker.png' %>
 
-4. Click the tile to open the configuration options. See [Configure the Dynatrace AppMon tile](#configure-tile) below for configuration information. 
+4. Click the tile to open the configuration options. See [Configure the Dynatrace AppMon tile](#configure-tile) below for configuration information.
 
 5. After finishing and checking off all configuration sections, return to the **Installation Dashboard**. The tile should now show green, not orange.
 
@@ -61,11 +61,11 @@ Install AppMon through your Ops Manager Installation Dashboard.
 Begin monitoring applications by binding a Dynatrace AppMon instance to the apps in Apps Manager.
 
 1. [Navigate to Apps Manager](http://docs.pivotal.io/pivotalcf/customizing/console-login.html) and click **Marketplace** in the left panel to open the Services Marketplace. You should see **Dynatrace AppMon** listed under **Services**.
-							
+
 	<%= image_tag 'appmon-in-marketplace.png' %>
 
 2. Click **Dynatrace AppMon** to open the service pane.
-			
+
 	<%= image_tag 'appmon-service-plan.png' %>
 
 3. Select a service plan and click **Select this plan**.
@@ -84,7 +84,7 @@ Begin monitoring applications by binding a Dynatrace AppMon instance to the apps
 	<%= image_tag 'appmon-log2.png' %>
 
 7. Log into Dynatrace AppMon and open the **System Monitoring** view under **Host Tiles** to view monitoring data. See [AppMon Data Views](./index.html#views) for some example data views that the AppMon service offers.
-	
+
 <%= image_tag 'appmon-host-view.png' %>
 
 
