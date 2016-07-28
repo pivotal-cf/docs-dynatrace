@@ -1,10 +1,10 @@
 ---
-title: Dynatrace AppMon for Pivotal Cloud Foundry&reg; Documentation
+title: Dynatrace AppMon for Pivotal Cloud Foundry Documentation
 ---
 
 <strong><%= modified_date %></strong>
 
-This is documentation for the Pivotal Cloud Foundry&reg; [Dynatrace AppMon APM](https://network.pivotal.io/products/p-dynatrace-appmon) tile.
+This is documentation for the Pivotal Cloud Foundry [Dynatrace AppMon APM](https://network.pivotal.io/products/p-dynatrace-appmon) tile.
 
 The Dynatrace Application Monitoring (AppMon) service enables in-depth monitoring of applications running on Pivotal Cloud Foundry (PCF), via an embedded agent bundled with applications that are deployed using Buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to AppMon account collectors. The AppMon account draws from this data to publish performance metrics and other details on the [dashboards](#views) of the Dynatrace AppMon Client Application.
 
@@ -12,7 +12,7 @@ The Dynatrace Application Monitoring (AppMon) service enables in-depth monitorin
 
 Cloud Foundry service brokers allow you to bind services to applications easily from the Pivotal Apps Manager Console or from the command line, so the applications can consume those services.
 
-The Pivotal Cloud Foundry® tile for Dynatrace AppMon installs the Dynatrace AppMon Service Broker as a Java application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications. 
+The Pivotal Cloud Foundry tile for Dynatrace AppMon installs the Dynatrace AppMon Service Broker as a Java application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications.
 
 ## <a id="product-snapshot"></a> Product Snapshot
 
@@ -31,16 +31,16 @@ The Pivotal Cloud Foundry® tile for Dynatrace AppMon installs the Dynatrace App
 This product has been tested against Dynatrace AppMon APM version: 6.3.0
 
 ## <a class="upgrading"></a> Upgrading to the Latest Version
-	
+
 Not applicable for version 1.0.
 
 ## <a id="trial-license"></a> Trial License
-	
+
 Users interested in Dynatrace AppMon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
 
 ## <a id="install"></a>  Install via Pivotal Ops Manager
 
-See the [Installing Dynatrace AppMon for PCF](./appmon-config.html) topic. 
+See the [Installing Dynatrace AppMon for PCF](./appmon-config.html) topic.
 
 ## <a id="views"></a>  Dynatrace AppMon Client Data Views
 
@@ -49,15 +49,15 @@ Dynatrace AppMon offers multiple views of application data, including the follow
 <%= image_tag 'appmon-host-view.png' %>
 
 **Java Process Health**
-	
+
 <%= image_tag 'appmon-java-health.png' %>
 
 **PurePaths** View
-	
+
 <%= image_tag 'appmon-pure-paths.png' %>
 
 **Response Time Hotspots**
-		
+
 <%= image_tag 'appmon-response-hotspots.png' %>
 
 **Web Request Performance**
@@ -65,11 +65,11 @@ Dynatrace AppMon offers multiple views of application data, including the follow
 <%= image_tag 'appmon-web-request.png' %>
 
 **Transaction Flow**
-	
+
 <%= image_tag 'appmon-transaction-flow.png' %>
 
 **Database Dashlet**
-	
+
 <%= image_tag 'appmon-db-dashlet.png' %>
 
 ## <a id="dependencies"></a> Packaging Dependencies
@@ -80,7 +80,7 @@ The Java Buildpack or other language buildpacks should have their proxy configur
 
 ### Offline Buildpacks
 
-If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace AppMon agent sources) in your PCF environment.   
+If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace AppMon agent sources) in your PCF environment.
 More details on this can be found here:  https://docs.run.pivotal.io/buildpacks/depend-pkg-offline.html Also, refer to next section on limitations around Buildpacks.
 
 ### Buildpack Limitations
@@ -99,8 +99,8 @@ You can also bundle the Dynatrace AppMon Agent with the following Node.js Buildp
 
 * Node.js Buildpack 1.5+ utilizing node engines 0.10.x and 0.12.x via agent bundling documented here: https://community.dynatrace.com/community/x/DafhCw
 
-Future releases of Dynatrace AppMon for PCF will support other language buildpacks. 
-						
+Future releases of Dynatrace AppMon for PCF will support other language buildpacks.
+
 ## <a id="feedback"></a> Feedback
 
 Please provide any bugs, feature requests, or questions to the [Pivotal Cloud Foundry Feedback list](mailto:pivotal-cf-feedback@pivotal.io)
