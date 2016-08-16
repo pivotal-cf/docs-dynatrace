@@ -1,0 +1,68 @@
+---
+title: Installing and Configuring the Dynatrace Service Broker
+owner: Partners
+---
+
+<strong><%= modified_date %></strong>
+
+This topic explains how to install and configure the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The topic also describes how to set up application monitoring for the Dynatrace AppMon Service and the Dynatrace Ruxit Service by creating an instance of the service and binding it to an application.
+
+## <a id="install"></a> Install the Dynatrace Service Broker
+
+Install AppMon through your Ops Manager Installation Dashboard.
+
+1. Download the product file from Pivotal Network.
+
+1. Upload the product file on the Ops Manager Installation Dashboard.
+
+1. Click **Add** next to the uploaded Dynatrace Service Broker tile in the Ops Manager **Available Products** view to add it to your staging area.
+
+1. Click the newly added **Dynatrace Service Broker** tile to open the configuration options. See [Configure the Dynatrace Service Broker](#configure-tile) section below for configuration information.
+
+1. Click **Save**.
+
+## <a id="configure-tile"></a> Configure the Dynatrace AppMon Tile
+
+1. In Pivotal Ops Manager, click the **Dynatrace Service Broker** tile to open its configuration options.
+
+**This section should tell the users how to configure the newly added tile by walking them through the sections. Which fields should they fill out? What are the different checkboxes? Include relevant screenshots here.** 
+
+## <a id="appmon-config"></a> Set Up Application Monitoring with the Dynatrace AppMon Service
+
+Begin monitoring applications by binding a Dynatrace AppMon instance to the apps in Apps Manager.
+
+1. [Navigate to Apps Manager](http://docs.pivotal.io/pivotalcf/customizing/console-login.html) and click **Marketplace** in the left panel to open the Services Marketplace. You should see **Dynatrace AppMon** listed under **Services**.
+
+	<%= image_tag 'appmon-in-marketplace.png' %>
+
+2. Click **Dynatrace AppMon** to open the service pane.
+
+	<%= image_tag 'appmon-service-plan.png' %>
+
+3. Select a service plan and click **Select this plan**.
+
+4. Under **Configure Instance**, enter a name for the plan instance to create. Select a space for the instance to run in, and select an application to bind it to. This is an application you want AppMon to monitor.
+<p class="note"><strong>Note</strong>: You can set up monitoring for other applications by editing the bindings for the AppMon service in the Space Dashboard.</p>
+
+	<%= image_tag 'appmon-service-bind.png' %>
+
+5. Click **Add** to create and bind the instance.
+
+6. Check the application logs. Run `cf logs` from the cf CLI and look for a line starting with `dynaTrace Agent for Java Copyright...` to confirm that the Dynatrace AppMon agent is running.
+
+	<%= image_tag 'appmon-log1.png' %>
+
+	<%= image_tag 'appmon-log2.png' %>
+
+7. Log into Dynatrace AppMon and open the **System Monitoring** view under **Host Tiles** to view monitoring data. See [AppMon Data Views](./index.html#views) for some example data views that the AppMon service offers.
+
+<%= image_tag 'appmon-host-view.png' %>
+
+## <a id='ruxit-config'></a> Set Up Application Monitoring with the Dynatrace Ruxit Service
+
+INCLUDE ANY ADDITIONAL INFORMATION ABOUT SETTING UP DYNATRACE APPLICATION MONITORING HERE
+
+Bind the Ruxit service to applications from the [Pivotal Apps Manager Console](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services) or using the [cf CLI](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services).
+
+
+
