@@ -1,44 +1,106 @@
 ---
-title: Dynatrace Service Broker for Pivotal Cloud Foundry
+title: Dynatrace AppMon for Pivotal Cloud Foundry Documentation
 owner: Partners
 ---
 
 <strong><%= modified_date %></strong>
 
-This documentation describes the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The Dynatrace Service Broker integrates two application monitoring solutions into your deployment: Dynatrace AppMon and Dynatrace Ruxit.
+This is documentation for the Pivotal Cloud Foundry [Dynatrace AppMon APM](https://network.pivotal.io/products/p-dynatrace-appmon) tile.
 
-## <a id="overview"></a>Overview
+The Dynatrace Application Monitoring (AppMon) service enables in-depth monitoring of applications running on Pivotal Cloud Foundry (PCF), via an embedded agent bundled with applications that are deployed using Buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to AppMon account collectors. The AppMon account draws from this data to publish performance metrics and other details on the [dashboards](#views) of the Dynatrace AppMon Client Application.
 
-The Dynatrace Service Broker tile installs the following services:
+### Dynatrace AppMon Service Broker
 
-* **AppMon** enables in-depth monitoring of applications running on PCF, through an embedded agent bundled with applications that are deployed using buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to AppMon account collectors. The AppMon account draws from this data to publish performance metrics and other details on the dashboards of the Dynatrace AppMon Client Application. The Dynatrace Service Broker installs the Dynatrace AppMon Service Broker as a Java application, registers it as a service broker on PCF, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications.
-* **Ruxit** is an application performance monitoring solution for PCF applications. The Dynatrace Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace. You can bind your apps to the Dynatrace Ruxit service and monitor them in your Ruxit environment. Ruxit detects clustered apps and provides visibility into their transaction flows, from the user level to the database and code level. Ruxit also creates and adapts real-time dependency graphs of all your pushed apps and connected databases. If Ruxit detects an anomaly in your environment, it directs you to the root cause with these dependency graphs and the data it collects. 
+Cloud Foundry service brokers allow you to bind services to applications easily from the Pivotal Apps Manager Console or from the command line, so the applications can consume those services.
+
+The Pivotal Cloud Foundry tile for Dynatrace AppMon installs the Dynatrace AppMon Service Broker as a Java application, registers it as a Service Broker on Cloud Foundry, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications.
 
 ## <a id="product-snapshot"></a> Product Snapshot
 
 <dl>
-<dt>Current Dynatrace Service Broker for Pivotal Cloud Foundry Details</dt>
-<dd><strong>Version</strong>: VERSION-NUMBER</dd>
-<dd><strong>Release Date</strong>: RELEASE-DATE</dd>
-<dd><strong>Software components versions</strong>: Dynatrace Service Broker VERSION-NUMBER</dd>
-<dd><strong>Compatible Ops Manager Version(s)</strong>: </dd>
-<dd><strong>Compatible Elastic Runtime Version(s)</strong>: </dd>
-<dd><strong>AWS support?</strong> <dd>
-<dd><strong>vSphere support?</strong> </dd>
-<dd><strong>OpenStack support?</strong> </dd>
+<dt>Current Dynatrace AppMon for Pivotal Cloud Foundry Details</dt>
+<dd><strong>Version</strong>: 1.0</dd>
+<dd><strong>Release Date</strong>: 2016-04-26</dd>
+<dd><strong>Software components versions</strong>: Dynatrace AppMon Service Broker 1.0</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.7</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.4.x, 1.5.x, 1.6.x, 1.7.x</dd>
+<dd><strong>Compatible Dynatrace AppMon Controller Version(s)</strong>: 6.3.x</dd>
+<dd><strong>AWS support?</strong> Yes<dd>
+<dd><strong>vSphere support?</strong> Yes</dd>
 </dl>
 
-## <a class="upgrading"></a> Upgrading
+This product has been tested against Dynatrace AppMon APM version: 6.3.0
 
-INCLUDE ANY UPGRADING INFORMATION HERE.
+## <a class="upgrading"></a> Upgrading to the Latest Version
+
+Not applicable for version 1.0.
 
 ## <a id="trial-license"></a> Trial License
 
-INCLUDE ANY TRIAL INFORMATION HERE.
+Users interested in Dynatrace AppMon can sign up for a [free trial license](http://www.dynatrace.com/en/products/dynatrace-free-trial.html).
+
+## <a id="install"></a>  Install via Pivotal Ops Manager
+
+See the [Installing Dynatrace AppMon for PCF](./appmon-config.html) topic.
+
+## <a id="views"></a>  Dynatrace AppMon Client Data Views
+
+Dynatrace AppMon offers multiple views of application data, including the following:
+
+<%= image_tag 'appmon-host-view.png' %>
+
+**Java Process Health**
+
+<%= image_tag 'appmon-java-health.png' %>
+
+**PurePaths** View
+
+<%= image_tag 'appmon-pure-paths.png' %>
+
+**Response Time Hotspots**
+
+<%= image_tag 'appmon-response-hotspots.png' %>
+
+**Web Request Performance**
+
+<%= image_tag 'appmon-web-request.png' %>
+
+**Transaction Flow**
+
+<%= image_tag 'appmon-transaction-flow.png' %>
+
+**Database Dashlet**
+
+<%= image_tag 'appmon-db-dashlet.png' %>
 
 ## <a id="dependencies"></a> Packaging Dependencies
 
-INCLUDE ANY DEPENDENCIES INFORMATION HERE (ONLINE BUILDPACKS, OFFLINE BUILDPACKS, BUILDPACK LIMITATIONS, ETC)
+### Online Buildpacks
+
+The Java Buildpack or other language buildpacks should have their proxy configuration enabled to download the agents if using online buildpacks. Offline buildpacks discussed below should not have this issue.
+
+### Offline Buildpacks
+
+If you are running PCF in an offline manner, you will want to be sure you have packaged the dependencies (including the Dynatrace AppMon agent sources) in your PCF environment.
+More details on this can be found here:  https://docs.run.pivotal.io/buildpacks/depend-pkg-offline.html Also, refer to next section on limitations around Buildpacks.
+
+### Buildpack Limitations
+
+The Dynatrace AppMon Agent is not currently bundled with any buildpacks available on PivNet (as of April 2016). Use the following supported Java and PHP buildpacks to pull the AppMon agent:
+
+* Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 upwards
+
+	* Use the latest online Java buildpack when pushing apps. Use `-b https://github.com/cloudfoundry/java-buildpack` or specify via manifest.
+
+	* Create offline Java buildpack from latest github repository (https://github.com/cloudfoundry/java-buildpack) and upload it to PCF.
+
+* PHP Buildpack 4.0+
+
+You can also bundle the Dynatrace AppMon Agent with the following Node.js Buildpack:
+
+* Node.js Buildpack 1.5+ utilizing node engines 0.10.x and 0.12.x via agent bundling documented here: https://community.dynatrace.com/community/x/DafhCw
+
+Future releases of Dynatrace AppMon for PCF will support other language buildpacks.
 
 ## <a id="feedback"></a> Feedback
 
