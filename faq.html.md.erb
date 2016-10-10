@@ -7,9 +7,9 @@ owner: Partners
 
 ## <a id="asg"></a> How do I Configure Application Security Groups to Allow Outbound Traffic from Dynatrace and Dynatrace AppMon Agents?
 
-Applications on Cloud Foundry use Application Security Groups (ASGs) to restrict outbound traffic, but Dynatrace and Dynatrace AppMon for PCF requires monitoring agents that run inside the cloud to communicate out to the remote Dynatrace endpoints. To permit this, configure the ASGs for any monitored applications by running `cf bind-running-security-group` from the command line. See the topic [Application Security Groups](http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html) for details.
+Applications on Cloud Foundry use Application Security Groups (ASGs) to restrict outbound traffic, but the Dynatrace Service and the Dynatrace AppMon Service require monitoring agents that run inside the cloud to communicate out to the remote Dynatrace endpoints. To permit this, configure the ASGs for any monitored applications by running `cf bind-running-security-group` from the command line. See the topic [Application Security Groups](http://docs.pivotal.io/pivotalcf/adminguide/app-sec-groups.html) for more information.
 
 ## <a id="http"></a> What If I Use HTTP Proxy?
 
-Don't worry. If you are using http(s) proxy, it should not affect the operation of Dynatrace AppMon. The agents communicate with the Dynatrace AppMon Collector over non-HTTP protocol which does not use HTTP proxy.
+If you are using HTTP(S) proxy, it does not affect the operation of the Dynatrace AppMon Service. The agents communicate with the Dynatrace AppMon Collector over a non-HTTP protocol which does not use HTTP proxy.
 

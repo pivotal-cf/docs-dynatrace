@@ -5,13 +5,13 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This topic explains how to install and configure the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The topic also describes how to set up application monitoring for the Dynatrace Service and the Dynatrace AppMon Service by creating an instance of the service and binding it to an application.
+This topic explains how to install and configure the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The topic also describes how to set up application monitoring for the Dynatrace SaaS/Managed Service and the Dynatrace AppMon Service by creating an instance of the service and binding it to an application.
 
-## <a id="install"></a> Install the Dynatrace Service Broker
+## <a id="install"></a> Install the Dynatrace Service Broker Tile
 
-Install AppMon through your Ops Manager Installation Dashboard.
+Install the Dynatrace Service Broker tile through your Ops Manager Installation Dashboard by performing the following steps:
 
-1. Download the product file from Pivotal Network.
+1. Download the product file from <a href="http://network.pivotal.io">Pivotal Network</a>.
 
 1. Upload the product file on the Ops Manager Installation Dashboard.
 
@@ -21,34 +21,37 @@ Install AppMon through your Ops Manager Installation Dashboard.
 
 1. Click **Save**.
 
-## <a id="configure-tile"></a> Configure the Dynatrace Tile
+## <a id="configure-tile"></a> Configure the Dynatrace Service Broker Tile
 
-This tile supports both Dynatrace SaaS/Managed and Dynatrace AppMon. Each product contains a relevant configuration setting. Multiple Dynatrace SaaS/Managed and multiple Dynatrace AppMon environments can be simultaneously supported.
+<p class="note"><strong>Note</strong>: The Dynatrace Service Broker tile supports both the Dynatrace SaaS/Managed Service and the Dynatrace AppMon Service. Each product contains a relevant configuration setting. Multiple Dynatrace SaaS/Managed and multiple Dynatrace AppMon environments can be simultaneously supported.</p>
 
-1. In Pivotal Ops Manager, click the **Dynatrace ** tile to open its configuration options.
+Perform the following steps to configure the Dynatrace Service Broker tile:
+
+1. In Pivotal Ops Manager, click the **Dynatrace Service Broker** tile to open its configuration options.
 
 	<%= image_tag 'dynatrace-select-tile.png' %>
 
-2. Assign the network and availability zones.
+2. Click **Assign AZs and Networks** to configure the network and availability zones.
 
 	<%= image_tag 'dynatrace-assign-networks.png' %>
     
-3. In the **SaaS/Managed Plans** section, click the add button at the upper right to add a service plan. Configure each plan as follows:
+3. Click **SaaS/Managed Plans**, and click the **Add** button at the upper right to add a service plan. 
+
 	<%= image_tag 'dynatrace-config-service-plan.png' %>
-
-	1. Enter a plan name. 
+Perform the following steps to create and configure each Service Plan:
+	1. Enter a **Plan Name**. 
 	1. Complete the **EnvironmentID** and **API token** fields using the `environmentId` and `token` values from your Dynatrace environment. You can find the **Environment ID** and the **API token** via the Deploy Dynatrace -> Set up PaaS integration section
-		2. Note: Tenant token field is deprecated and provided for backwards compatability with legacy buildpacks. Please utilize API token.
-	1. Repeat the steps above for each additional Dynatrace environment you require.
-
-4. In the **AppMon Plans** section, click the **Add** button at upper right to add a service plan. Configure each plan as follows:
+		<p class="note"><strong>Note</strong>: The <strong>Tenant token</strong> field exists for backwards compatibility with legacy buildpacks, but is deprecated. Use the <strong>API token</strong> field instead.</p>
+	1. Click **Save**.
+4. Click **AppMon Plans** and click the **Add** button at upper right to add a service plan. 
 	<%= image_tag 'dynatrace-appmon-config-service-plan.png' %>
+Dynatrace AppMon Collector instances run remotely to collect data from the agent running on PCF and send it to the Dynatrace servers. Perform the following steps to create and configure a Service Plan for each Dynatrace Appmon Collector instance:
+	1. Enter a **Plan Name**. 
+	1. Enter a **Collector description**.
+	1. Enter a **Collector host** and **Collector port**
+	1. Click **Save**.
 
-	1. Create a separate Service Plan for each Dynatrace AppMon Collector instance. These instances run remotely to collect data from the agent running on PCF and send it to the Dynatrace servers.
-	1. Configure the Dynatrace AppMon Collector server address and port.
-	1. Add additional collectors as needed.
-
-3. In the **Service Access** section, select the **Enable global access...** checkbox to publish your services to all users in the Service Marketplace.
+3. In the **Service Access** section, select the **Enable global access...** checkboxes to publish your services to all users in the Marketplace.
 
 	<%= image_tag 'dynatrace-config-service-access.png' %>
 
@@ -58,14 +61,11 @@ This tile supports both Dynatrace SaaS/Managed and Dynatrace AppMon. Each produc
 
 6. Click **Apply changes**.
 
-## <a id='dynatrace-config'></a> Set Up Application Monitoring with the Dynatrace SaaS/Managed Service
+## <a id='dynatrace-config'></a> Set Up Application Monitoring 
 
-1. Bind the Dynatrace service to applications from the [Pivotal Apps Manager Console](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services) or using the [cf CLI](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services).
+To set up application monitoring with the Dynatrace SaaS/Managed Service, bind the service to apps in [Apps Manager](http://docs.pivotal.io/pivotalcf/console/manage-apps.html#bind-services) or using the [cf CLI](https://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html#bind). After binding the service to an app, see the [Using Dynatrace SaaS/Managed](using-dynatrace.html) topic for more information about how to use the service.
 
-## <a id="appmon-config"></a> Set Up Application Monitoring with the Dynatrace AppMon Service
-
-1. Bind the Dynatrace AppMon service to applications from the [Pivotal Apps Manager Console](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services) or using the [cf CLI](http://docs.pivotal.io/pivotalcf/1-7/console/manage-apps.html#bind-services).
-
+To set up application monitoring with the Dynatrace Appmon Service, bind the service to apps in [Apps Manager](http://docs.pivotal.io/pivotalcf/console/manage-apps.html#bind-services) or using the [cf CLI](https://docs.pivotal.io/pivotalcf/devguide/services/managing-services.html#bind). After binding the service to an app, see the [Using Dynatrace AppMon](using-dynatrace-appmon.html) topic for more information about how to use the service.
 
 
 
