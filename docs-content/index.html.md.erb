@@ -33,13 +33,13 @@ The Dynatrace Service Broker tile installs the following services:
 
 ## <a id="upgrading"></a> Upgrading
 
-The Dynatrace Service Broker for PCF tile replaces both the Dynatrace AppMon Service Broker for PCF v1.0 as well as the Dynatrace Ruxit Service Broker for PCF v1.0 tiles. You must uninstall the previous tiles before installing the new one.
+The Dynatrace Service Broker for PCF tile replaces both the Dynatrace AppMon Service Broker for PCF v1.0, as well as the Dynatrace Ruxit Service Broker for PCF v1.0 tiles. You must uninstall the previous tiles before installing the new one.
 
 ## <a id="trial-license"></a> Trial License
 
-Users interested in Dynatrace can sign up for a [free trial.](https://www.dynatrace.com/trial/ "Dynatrace Free Trial")
+Users interested in Dynatrace can sign up for a [free trial](https://www.dynatrace.com/trial/ "Dynatrace Free Trial").
 
-Users interested in Dynatrace AppMon can sign up for a [free trial license.](https://bit.ly/dttrail "Dynatrace AppMon Free Trial")
+Users interested in Dynatrace AppMon can sign up for a [free trial license](https://bit.ly/dttrail "Dynatrace AppMon Free Trial").
 
 ## <a id="dependencies"></a> Packaging Dependencies
 
@@ -50,13 +50,13 @@ The Dynatrace Service Broker for PCF requires the following dependencies:
 
 Developers must use the latest Java buildpack when pushing apps by performing one of the following steps:
 
-* Use the latest online Java buildpack by specifying it in the app manifest or with the following cf Command Line Interface (cf CLI) command:
+* Use the latest online Java buildpack by specifying it in the app manifest or with the following Cloud Foundry Command Line Interface (cf CLI) command:
 <pre class="terminal">
 $ cf push YOUR-APP-NAME -b <span>https</span>://github.com/cloudfoundry/java-buildpack</pre>
 For more information about pushing apps, see the [Getting Started with the cf CLI](http://docs.pivotal.io/pivotalcf/cf-cli/getting-started.html#push) topic. For more information about pushing apps with manifests, see the [Deploying with Application Manifests](http://docs.pivotal.io/pivotalcf/devguide/deploy-apps/manifest.html) topic.
 * Create an offline Java buildpack from the latest GitHub [repository](https://github.com/cloudfoundry/java-buildpack). For more information about using offline buildpacks, see the [Packaging Dependencies for Offline Buildpacks](http://docs.pivotal.io/pivotalcf/buildpacks/depend-pkg-offline.html) topic.
 
-You can also bundle the Dynatrace AppMon Agent with the Node.js Buildpack 1.5+, utilizing node engines 0.10.x and 0.12.x. For more information, see the Dynatrace [documentation](https://community.dynatrace.com/community/x/DafhCw).
+You can also bundle the Dynatrace AppMon Agent with the Node.js Buildpack 1.5+, using node engines 0.10.x and 0.12.x. For more information, see the Dynatrace [documentation](https://community.dynatrace.com/community/x/DafhCw).
 
 ## <a id="limitations"></a> Limitations
 The Dynatrace Service Broker for PCF does not currently support PHP.
