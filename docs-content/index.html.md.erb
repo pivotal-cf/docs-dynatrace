@@ -5,9 +5,9 @@ owner: Partners
 
 <strong><%= modified_date %></strong>
 
-This documentation describes the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The Dynatrace Service Broker integrates two application monitoring solutions into your deployment: Dynatrace and Dynatrace Appmon.
+This documentation describes the Dynatrace Service Broker tile for Pivotal Cloud Foundry (PCF). The Dynatrace Service Broker integrates two application monitoring solutions into your deployment: Dynatrace and Dynatrace AppMon.
 
-<p class="note"><strong>Note</strong>: The Dynatrace Service Broker for PCF replaces both the Dynatrace Appmon Service Broker and the Dynatrace Ruxit Service Broker. See the <a href="#upgrading">Upgrading</a> section for more information.</p>
+<p class="note"><strong>Note</strong>: The Dynatrace Service Broker for PCF replaces both the Dynatrace AppMon Service Broker and the Dynatrace Ruxit Service Broker. See the <a href="#upgrading">Upgrading</a> section for more information.</p>
 
 ## <a id="overview"></a>Overview
 
@@ -15,7 +15,7 @@ The Dynatrace Service Broker tile installs the following services:
 
 * **Dynatrace SaaS/Managed** is an application performance monitoring solution for PCF applications. The Dynatrace Service Broker registers a service broker on PCF and exposes its service plans on the Marketplace. You can bind your apps to the Dynatrace service and monitor them in your Dynatrace environment. Dynatrace detects clustered apps and provides visibility into their transaction flows, from the user level to the database and code level. Dynatrace also creates and adapts real-time dependency graphs of all your pushed apps and connected databases. If Dynatrace detects an anomaly in your environment, it directs you to the root cause with these dependency graphs and the data it collects. 
 
-* **Dynatrace AppMon** enables in-depth monitoring of applications running on PCF, through an embedded agent bundled with applications that are deployed using buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to Appmon account collectors. The AppMon account draws from this data to publish performance metrics and other details on the dashboards of the Dynatrace Appmon Client Application. The Dynatrace Service Broker installs the Dynatrace AppMon Service Broker as a Java application, registers it as a service broker on PCF, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace Appmon services with Cloud Foundry applications.
+* **Dynatrace AppMon** enables in-depth monitoring of applications running on PCF, through an embedded agent bundled with applications that are deployed using buildpacks. The service agent instruments the application by adding tracing and monitoring hooks to the code, then continuously sends the resulting data to AppMon account collectors. The AppMon account draws from this data to publish performance metrics and other details on the dashboards of the Dynatrace AppMon Client Application. The Dynatrace Service Broker installs the Dynatrace AppMon Service Broker as a Java application, registers it as a service broker on PCF, and exposes its service plans on the Marketplace. This simplifies the integration of Dynatrace AppMon services with Cloud Foundry applications.
 
 ## <a id="product-snapshot"></a> Product Snapshot
 
@@ -23,7 +23,7 @@ The Dynatrace Service Broker tile installs the following services:
 <dt>Current Dynatrace Service Broker for Pivotal Cloud Foundry Details</dt>
 <dd><strong>Version</strong>: 1.1</dd>
 <dd><strong>Release Date</strong>: 10/10/2016</dd>
-<dd><strong>Software components versions</strong>: Dynatrace Service Broker 1.1, Dynatrace Appmon Service Broker 1.0</dd>
+<dd><strong>Software components versions</strong>: Dynatrace Service Broker 1.1, Dynatrace AppMon Service Broker 1.0</dd>
 <dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.7, 1.8</dd>
 <dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.4.x, 1.5.x, 1.6.x, 1.7.x, 1.8.x</dd>
 <dd><strong>AWS support?</strong> Yes<dd>
@@ -33,19 +33,19 @@ The Dynatrace Service Broker tile installs the following services:
 
 ## <a id="upgrading"></a> Upgrading
 
-The Dynatrace Service Broker for PCF tile replaces both the Dynatrace Appmon Service Broker for PCF v1.0 as well as the Dynatrace Ruxit Service Broker for PCF v1.0 tiles. You must uninstall the previous tiles before installing the new one.
+The Dynatrace Service Broker for PCF tile replaces both the Dynatrace AppMon Service Broker for PCF v1.0 as well as the Dynatrace Ruxit Service Broker for PCF v1.0 tiles. You must uninstall the previous tiles before installing the new one.
 
 ## <a id="trial-license"></a> Trial License
 
 Users interested in Dynatrace can sign up for a [free trial.](https://www.dynatrace.com/trial/ "Dynatrace Free Trial")
 
-Users interested in Dynatrace AppMon can sign up for a [free trial license.](https://bit.ly/dttrail "Dynatrace Appmon Free Trial")
+Users interested in Dynatrace AppMon can sign up for a [free trial license.](https://bit.ly/dttrail "Dynatrace AppMon Free Trial")
 
 ## <a id="dependencies"></a> Packaging Dependencies
 
 The Dynatrace Service Broker for PCF requires the following dependencies:
 
-* Dynatrace Appmon requires Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 (release version 3.7) or upwards
+* Dynatrace AppMon requires Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 (release version 3.7) or upwards
 * The Dynatrace Service Broker's usage of Dynatrace API tokens requires Java Buildpack build commit # 92a63e430fc6687933df95dc8a2bf30ac7749086 (PR 336) or upwards
 
 Developers must use the latest Java buildpack when pushing apps by performing one of the following steps:
