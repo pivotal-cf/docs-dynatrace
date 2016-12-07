@@ -41,7 +41,7 @@ Perform the following steps to configure the Dynatrace Service Broker tile:
 Perform the following steps to create and configure each Service Plan:
 	1. Enter a **Plan Name**. 
 	1. Complete the **EnvironmentID** and **API token** fields using the `environmentId` and `token` values from your Dynatrace environment. You can retrieve your **Environment ID** and the **API token** by logging in to Dynatrace and navigating to the **Deploy Dynatrace -> Set up PaaS integration** section.
-		<p class="note"><strong>Note</strong>: The <strong>Tenant token</strong> field exists for backwards compatibility with legacy buildpacks, but is deprecated. Use the <strong>API token</strong> field instead.</p>
+		<p class="note"><strong>Note</strong>: The <strong>API base URL</strong> is only required for Dynatrace Managed environments</p>
 	1. Click **Save**.
 4. Click **AppMon Plans** and click the **Add** button at upper right to add a service plan. 
 	<%= image_tag 'dynatrace-appmon-config-service-plan.png' %>
