@@ -21,17 +21,17 @@ The Dynatrace Service Broker tile installs the following services:
 
 <dl>
 <dt>Current Dynatrace Service Broker for Pivotal Cloud Foundry Details</dt>
-<dd><strong>Version</strong>: 1.1</dd>
-<dd><strong>Release Date</strong>: 10/10/2016</dd>
+<dd><strong>Version</strong>: 1.2</dd>
+<dd><strong>Release Date</strong>: 12/7/2016</dd>
 <dd><strong>Software components versions</strong>: Dynatrace Service Broker 1.1, Dynatrace AppMon Service Broker 1.0</dd>
-<dd><strong>Compatible Ops Manager Version(s)</strong>: 1.6.x, 1.7, 1.8</dd>
-<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.4.x, 1.5.x, 1.6.x, 1.7.x, 1.8.x</dd>
+<dd><strong>Compatible Ops Manager Version(s)</strong>:  1.7, 1.8</dd>
+<dd><strong>Compatible Elastic Runtime Version(s)</strong>: 1.7.x, 1.8.x</dd>
 <dd><strong>AWS support?</strong> Yes<dd>
 <dd><strong>vSphere support?</strong> Yes</dd>
 <dd><strong>OpenStack support?</strong> Yes</dd>
 </dl>
 
-## <a id="upgrading"></a> Upgrading
+## <a id="upgrading"></a> Upgrading v 1.0
 
 The Dynatrace Service Broker for PCF tile replaces both the Dynatrace AppMon Service Broker for PCF v1.0, as well as the Dynatrace Ruxit Service Broker for PCF v1.0 tiles. You must uninstall the previous tiles before installing the new one.
 
@@ -46,7 +46,7 @@ Users interested in Dynatrace AppMon can sign up for a [free trial license](http
 The Dynatrace Service Broker for PCF requires the following dependencies:
 
 * Dynatrace AppMon requires Java Buildpack April 8, 2016 build commit # bed4c6137c7bf08c09813a4b5b33eed0d3eaee46 (release version 3.7) or upwards
-* The Dynatrace Service Broker's usage of Dynatrace API tokens requires Java Buildpack build commit # 92a63e430fc6687933df95dc8a2bf30ac7749086 (PR 336) or upwards
+* The Dynatrace Service Broker's usage of Dynatrace API tokens and API URL requires Java Buildpack build commit # 7602286305b50c25cf4f8bd7a4ba1e00118ba21b (PR 352) or upwards
 
 Developers must use the latest Java buildpack when pushing apps by performing one of the following steps:
 
