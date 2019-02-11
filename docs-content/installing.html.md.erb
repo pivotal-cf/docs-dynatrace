@@ -24,7 +24,8 @@ Install the Dynatrace Service Broker tile through your Ops Manager Installation 
 ## <a id="configure-tile"></a> Configure the Dynatrace Service Broker Tile
 
 <p class="note"><strong>Note</strong>: The Dynatrace Service Broker tile supports both the Dynatrace SaaS/Managed Service and the Dynatrace AppMon Service. Each product contains a relevant configuration setting. Multiple Dynatrace SaaS/Managed and multiple Dynatrace AppMon environments can be simultaneously supported.</p>
-
+<p class="note"><strong>Note</strong>: Service brokers can not be deployed with empty service definitions so a service must be defined for both Dynatrace as well as Appmon. This can be a dummy entry with placeholder data.
+	
 Perform the following steps to configure the Dynatrace Service Broker tile:
 
 1. In Pivotal Ops Manager, click the **Dynatrace Service Broker** tile to open its configuration options.
