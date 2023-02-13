@@ -30,41 +30,42 @@ Perform the following steps to configure the Dynatrace Service Broker tile:
 
 1. In Pivotal Ops Manager, click the **Dynatrace Service Broker** tile to open its configuration options.
 
-	![alt-text=""](./images/dynatrace-select-tile.png)
+  ![alt-text=""](./images/dynatrace-select-tile.png)
 
 2. Click **Assign AZs and Networks** to configure the network and availability zones.
 
-	![alt-text=""](./images/dynatrace-assign-networks.png)
+  ![alt-text=""](./images/dynatrace-assign-networks.png)
 
 3. Click **SaaS/Managed Plans**, and click the **Add** button at the upper right to add a service plan.
 
-	![alt-text=""](./images/dynatrace-config-service-plan.png)
+  ![alt-text=""](./images/dynatrace-config-service-plan.png)
 
-Perform the following steps to create and configure each Service Plan:
+  Perform the following steps to create and configure each Service Plan:
 
-	1. Enter a **Plan Name**.
-	2. Complete the **EnvironmentID** and **API token** fields using the `environmentId` and `token` values from your Dynatrace environment. You can retrieve your **Environment ID** and the **API token** by logging in to Dynatrace and navigating to the **Deploy Dynatrace -> Set up PaaS integration** section.
-		<p class="note"><strong>Note</strong>: The <strong>API base URL</strong> is only required for Dynatrace Managed environments.</p>
-	3. To skip errors during downloading the OneAgent, you can select the 'skiperrors' checkbox.
-	4. Click **Save**.
+  1. Enter a **Plan Name**.
+  1. Complete the **EnvironmentID** and **API token** fields using the `environmentId` and `token` values from your Dynatrace environment. You can retrieve your **Environment ID** and the **API token** by logging in to Dynatrace and navigating to the **Deploy Dynatrace -> Set up PaaS integration** section.
+    <p class="note"><strong>Note</strong>: The <strong>API base URL</strong> is only required for Dynatrace Managed environments.</p>
+  1. To skip errors during downloading the OneAgent, you can select the 'skiperrors' checkbox.
+  1. Click **Save**.
+
 1. Click **AppMon Plans** and click the **Add** button at upper right to add a service plan.
 
-	![alt-text=""](./images/dynatrace-appmon-config-service-plan.png)
+  ![alt-text=""](./images/dynatrace-appmon-config-service-plan.png)
 
 Dynatrace AppMon Collector instances run remotely to collect data from the agent running on VMware Tanzu and send it to the Dynatrace servers. Perform the following steps to create and configure a Service Plan for each Dynatrace AppMon Collector instance:
 
-	1. Enter a **Plan Name**.
-	2. Enter a **Collector description**.
-	3. Enter a **Collector host** and **Collector port**
-	4. Click **Save**.
+  1. Enter a **Plan Name**.
+  2. Enter a **Collector description**.
+  3. Enter a **Collector host** and **Collector port**
+  4. Click **Save**.
 
 1. In the **Service Access** section, select the **Enable global access...** checkboxes to publish your services to all users in the Marketplace.
 
-	![alt-text=""](./images/dynatrace-config-service-access.png)
+  ![alt-text=""](./images/dynatrace-config-service-access.png)
 
 2. Return to the **Installation Dashboard**.
 
-	![alt-text=""](./images/dynatrace-select-tile.png)
+  ![alt-text=""](./images/dynatrace-select-tile.png)
 
 3. Click **Apply changes**.
 
